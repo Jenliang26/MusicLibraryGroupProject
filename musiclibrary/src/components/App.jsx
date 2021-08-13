@@ -12,7 +12,7 @@ class App extends Component {
                     title: '',
                     album: '',
                     artist: '',
-                    releaseDate: ''
+                    release_date: ''
                 }
             ]
         }
@@ -35,11 +35,20 @@ class App extends Component {
         }
     }
 
+
     render() {
         return(
             <div>
-                <h1>{this.state.songs.title}</h1>
-                <MusicTable />
+
+                <p>{this.state.songs[0].title}</p>
+
+                <MusicTable songs={this.state.songs} />
+                {console.log(this.state)}
+
+                {/* {console.log(this.state.songs.title)}
+                {console.log(this.state.songs.album)}
+                {console.log(this.state.songs.artist)}
+                {console.log(this.state.songs.release_date)} */}
             </div>
         )
     }
