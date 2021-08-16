@@ -12,7 +12,8 @@ class App extends Component {
                     title: '',
                     album: '',
                     artist: '',
-                    release_date: ''
+                    release_date: '',
+                    id: ''
                 }
             ]
         }

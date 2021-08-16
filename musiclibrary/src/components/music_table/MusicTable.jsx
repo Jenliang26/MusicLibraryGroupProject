@@ -11,12 +11,15 @@ const MusicTable = (props) => {
               <td>Album</td>
               <td>Artist</td>
               <td>Release Date</td>
+              <td>ID</td>
             </tr>
             <tr>
               <td>{props.songs.map((song, index) => <li key={index}>{song.title}</li>)}</td>
               <td>{props.songs.map((song, index) => <li key={index}>{song.album}</li>)}</td>
               <td>{props.songs.map((song, index) => <li key={index}>{song.artist}</li>)}</td>
               <td>{props.songs.map((song, index) => <li key={index}>{song.release_date}</li>)}</td>
+              <td>{props.songs.map((song, index) => <li key={index}>{song.id}</li>)}</td>
+
             </tr>
           </table>
         </div>
