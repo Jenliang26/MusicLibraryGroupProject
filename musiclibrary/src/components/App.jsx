@@ -37,6 +37,12 @@ class App extends Component {
         }
     }
 
+    // plz work
+    // handleClick = () => {
+    //     this.forceUpdate();
+    // }
+
+
 
     async deleteRow(id) {
         // let song_id = this.state.songs.id
@@ -49,7 +55,11 @@ class App extends Component {
     render() {
         return(
             <div>
-                <MusicTable songs={this.state.songs} deleteRow={this.deleteRow} />
+                <MusicTable 
+                    songs={this.state.songs} 
+                    deleteRow={this.deleteRow} 
+                    handleClick={this.handleClick}
+                />
             </div>
         )
     }

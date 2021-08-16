@@ -23,7 +23,7 @@ const MusicTable = (props) => {
               <td>{props.songs.map((song, index) => <li key={index}>
 
 
-                <button onClick={() => props.deleteRow(song.id)}>Delete{song.id}</button>
+                <button onClick={() => props.deleteRow(song.id)}>Delete</button>
                 
               
               </li>)}
