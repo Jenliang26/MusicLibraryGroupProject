@@ -11,20 +11,43 @@ class SongForm extends Component {
     }
   }
 
+  handleChange(e) {
+    this.setState({value: e.target.value});
+  }
+
   render() { 
     return ( 
       <div>
-        <h1>Please add a new song to the playlist. Lmaooo</h1>
-        <form action="" method="post">
-          <label for="title">Title: </label>
-          <input type="text" name="title"><br>
-          <label for="album">Album: </label>
-          <input type="text" name="album"><br>
-          <label for="artist">Artist: </label>
-          <input type="text" name="artist"><br>
-          <label for="release_date">Release Date: </label>
-          <input type="date" name="release_date">
-        </form>
+        <form onSubmit={this.handleSubmit}>
+
+          <label>
+            Title:
+            <input type="text" value={this.state.title} onChange={this.handleChange} />
+          </label>
+          <br />
+
+          <label>
+            Album:
+            <input type="text" value={this.state.album} onChange={this.handleChange} />
+          </label>
+          <br />
+
+          <label>
+            Artist:
+            <input type="text" value={this.state.artist} onChange={this.handleChange} />
+          </label>
+          <br />
+
+          <label>
+            Release Date:
+            <input type="text" value={this.state.release_date} onChange={this.handleChange} />
+          </label>
+          <br />
+
+
+          <input type="submit" value="Submit" />
+      </form>
+          
       </div>
     );
   }
