@@ -37,7 +37,6 @@ class SongForm extends Component {
   };
 
   handleSubmit = e => {
-    e.preventDefault();
     const data = {
       title: this.state.title,
       album: this.state.album,
@@ -49,8 +48,6 @@ class SongForm extends Component {
     .then(res => console.log(res))
     .catch(err => console.log(err));
 };
-
- 
 
   render() { 
     return ( 
