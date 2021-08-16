@@ -12,7 +12,8 @@ class App extends Component {
                     title: '',
                     album: '',
                     artist: '',
-                    release_date: ''
+                    release_date: '',
+                    id: ''
                 }
             ]
         }
@@ -37,12 +38,18 @@ class App extends Component {
     }
 
 
+    deleteRow(id) {
+        // let song_id = this.state.songs.id
+        axios.delete(`http://127.0.0.1:8000/music/${id}`)
+    }
+  
+
+   
+
     render() {
         return(
             <div>
-
-                <MusicTable songs={this.state.songs} />
-
+                <MusicTable songs={this.state.songs} deleteRow={this.deleteRow} />
             </div>
         )
     }
