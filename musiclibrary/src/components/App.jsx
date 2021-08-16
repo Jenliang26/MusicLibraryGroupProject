@@ -41,15 +41,8 @@ class App extends Component {
         return(
             <div>
 
-                <p>{this.state.songs[0].title}</p>
-
                 <MusicTable songs={this.state.songs} />
-                {console.log(this.state)}
 
-                {/* {console.log(this.state.songs.title)}
-                {console.log(this.state.songs.album)}
-                {console.log(this.state.songs.artist)}
-                {console.log(this.state.songs.release_date)} */}
             </div>
         )
     }
