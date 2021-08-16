@@ -36,15 +36,9 @@ class App extends Component {
         }
     }
 
-    // plz work
-    // handleClick = () => {
-    //     this.forceUpdate();
-    // }
-
-
-
-    async deleteRow(id) {
+    deleteRow(id) {
         axios.delete(`http://127.0.0.1:8000/music/${id}/`)
+        window.location.reload()
     }
   
 
@@ -54,7 +48,6 @@ class App extends Component {
                 <MusicTable 
                     songs={this.state.songs} 
                     deleteRow={this.deleteRow} 
-                    handleClick={this.handleClick}
                 />
             </div>
         )
