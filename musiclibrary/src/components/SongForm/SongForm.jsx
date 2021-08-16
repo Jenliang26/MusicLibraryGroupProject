@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios';
 
 class SongForm extends Component {
   constructor(props) {
@@ -11,46 +12,81 @@ class SongForm extends Component {
     }
   }
 
-  handleChange(e) {
-    this.setState({value: e.target.value});
-  }
+  onTitleChange = e => {
+    this.setState({
+      title: e.target.value
+    });
+  };
+
+  onAlbumChange = e => {
+    this.setState({
+      album: e.target.value
+    });
+  };
+
+  onArtistChange = e => {
+    this.setState({
+      artist: e.target.value
+    });
+  };
+
+  onReleaseDateChange = e => {
+    this.setState({
+      release_date: e.target.value
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const data = {
+      title: this.state.title,
+      album: this.state.album,
+      artist: this.state.artist,
+      release_date: this.state.release_date
+    };
+    axios
+    .post("http://127.0.0.1:8000/music/", data)
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+};
+
+ 
 
   render() { 
     return ( 
-      <div>
-        <form onSubmit={this.handleSubmit}>
-
-          <label>
-            Title:
-            <input type="text" value={this.state.title} onChange={this.handleChange} />
-          </label>
-          <br />
-
-          <label>
-            Album:
-            <input type="text" value={this.state.album} onChange={this.handleChange} />
-          </label>
-          <br />
-
-          <label>
-            Artist:
-            <input type="text" value={this.state.artist} onChange={this.handleChange} />
-          </label>
-          <br />
-
-          <label>
-            Release Date:
-            <input type="text" value={this.state.release_date} onChange={this.handleChange} />
-          </label>
-          <br />
+      <div className="post">
+        <form className="post" onSubmit={this.handleSubmit}>
 
 
-          <input type="submit" value="Submit" />
-      </form>
+          <input
+            placeholder="Title" value={this.state.title}
+            onChange={this.onTitleChange} required
+          />
+
+          <input
+            placeholder="Album" value={this.state.album}
+            onChange={this.onAlbumChange} required
+          />
+
+          <input
+            placeholder="Artist" value={this.state.artist}
+            onChange={this.onArtistChange} required
+          />
+
+          <input
+            placeholder="Release Date" value={this.state.release_date}
+            onChange={this.onReleaseDateChange} required
+          />
           
+
+
+          <button type="submit">Create Post</button>
+        </form>
       </div>
     );
   }
 }
  
 export default SongForm;
+
+
