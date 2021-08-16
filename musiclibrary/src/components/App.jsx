@@ -18,7 +18,6 @@ class App extends Component {
             ]
         }
     }
-
     
     componentDidMount() {
         this.getSong();
@@ -37,14 +36,11 @@ class App extends Component {
         }
     }
 
-
     async deleteRow(id) {
         // let song_id = this.state.songs.id
         axios.delete(`http://127.0.0.1:8000/music/${id}/`)
     }
   
-
-   
 
     render() {
         return(
