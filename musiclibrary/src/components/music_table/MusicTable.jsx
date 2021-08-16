@@ -4,28 +4,20 @@ const MusicTable = (props) => {
   // let songs = this.props.songs;
   return ( 
         <div>
-          <h1>hello from MusicTable</h1>
-
-          <ul>
-            {props.songs.map((song, index) => <li key={index}>{song.title}</li>)}
-          </ul>
-
-          {/* <table>
+          <table>
             <tr>
               <td>Song Title</td>
               <td>Album</td>
               <td>Artist</td>
-              <td>Genre</td>
               <td>Release Date</td>
             </tr>
             <tr>
-              <td>Out of My Mind</td>
-              <td>try!</td>
-              <td>{props.songs[0].artist}</td>
-              <td>Blues</td>
-              <td>2005?</td>
+              <td>{props.songs.map((song, index) => <li key={index}>{song.title}</li>)}</td>
+              <td>{props.songs.map((song, index) => <li key={index}>{song.album}</li>)}</td>
+              <td>{props.songs.map((song, index) => <li key={index}>{song.artist}</li>)}</td>
+              <td>{props.songs.map((song, index) => <li key={index}>{song.release_date}</li>)}</td>
             </tr>
-          </table> */}
+          </table>
         </div>
    );
 }
