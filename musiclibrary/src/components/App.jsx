@@ -50,7 +50,9 @@ class App extends Component {
                     songs={this.state.songs} 
                     deleteRow={this.deleteRow} 
                 />
-                <SongForm />
+                <SongForm 
+                    songs={this.state.songs} 
+                />
             </div>
         )
     }
