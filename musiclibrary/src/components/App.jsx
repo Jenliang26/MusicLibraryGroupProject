@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import MusicTable from './music_table/MusicTable';
 import axios from 'axios';
+import SongForm from './SongForm/SongForm';
 
 class App extends Component {
     constructor(props) {
@@ -49,6 +50,7 @@ class App extends Component {
                     songs={this.state.songs} 
                     deleteRow={this.deleteRow} 
                 />
+                <SongForm />
             </div>
         )
     }
