@@ -6,6 +6,7 @@ import SongForm from './SongForm/SongForm';
 import SearchBar from './SearchBar/SearchBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container'
+import Card from 'react-bootstrap/Card'
 
 class App extends Component {
     constructor(props) {
@@ -65,7 +66,15 @@ class App extends Component {
 
     render() {
         return(
-            <div>
+            <div class="container p-3 my-3 border" class="container p-3 my-3 bg-white text-black">
+                <h1 className="heading" class="text-center"> Welcome to the Music Library</h1>
+                <Card.Header>Add Songs to the Music Library
+                <Container className="fluid mt-3">
+                        <SongForm 
+                            songs={this.state.songs} 
+                        />
+                </Container>
+                </Card.Header>
                 <Container className="fluid mt-5">
                     <div>
 
@@ -74,11 +83,6 @@ class App extends Component {
                             deleteRow={this.deleteRow} 
                         />
                     </div>
-                </Container>
-                <Container className="fluid mt-5">
-                        <SongForm 
-                            songs={this.state.songs} 
-                        />
                 </Container>
                 <Container className="fluid mt-5">
                         <SearchBar 
