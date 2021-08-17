@@ -37,11 +37,28 @@ class App extends Component {
         }
     }
 
-    deleteRow(id) {
-        axios.delete(`http://127.0.0.1:8000/music/${id}/`)
-        window.location.reload()
+    deleteRow= async(id)=> {
+        try{
+            await axios.delete(`http://127.0.0.1:8000/music/${id}/`)
+            this.getSong()
+        }
+        catch(e){
+            console.log(e)
+        }
+        
     }
-  
+    filterResults =(field, searchTerm)=>{
+        console.log(field)
+        console.log(searchTerm)
+        let results = this.state.songs.filter(function(el){
+            if(el[field] == searchTerm){
+                return true
+            }
+        })
+        this.setState({
+            songs: results
+        })
+    }
 
     render() {
         return(
@@ -56,6 +73,7 @@ class App extends Component {
                 />
 
                 <SearchBar 
+                    filter = {this.filterResults}
                     songs={this.state.songs}
                 />
 
