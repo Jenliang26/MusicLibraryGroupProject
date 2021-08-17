@@ -4,32 +4,36 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      songs: [
-        {
-            title: '',
-            album: '',
-            artist: '',
-            release_date: '',
-            id: ''
-        }
-      ]
+      searchTerm: "",
+      field : ""
+
     }
+  }
+  onChange=(event)=>{
+    this.setState({
+      [event.target.name] : event.target.value
+    })
+  }
+  handleSubmit=(e) =>{
+    e.preventDefault()
+    this.props.filter(this.state.field, this.state.searchTerm)
   }
   render() { 
     return ( 
       <div>
-        <h1>Hello from search bar lmaooo</h1>
+        <form onSubmit={this.handleSubmit}>
 
-        <select>
-          <option selected value="">Search</option>
-          <option value="title">Title</option>
-          <option value="album">Album</option>
-          <option value="artist">Artist</option>
-          <option value="release_date">Release Date</option>
-        </select>
+          <select name="field" onChange={this.onChange}>
+            <option selected value="">Search</option>
+            <option value="title">Title</option>
+            <option value="album">Album</option>
+            <option value="artist">Artist</option>
+            <option value="release_date">Release Date</option>
+          </select>
 
-        <h2>ahoy from under the search bar!</h2>
-
+          <input onChange={this.onChange} name="searchTerm"></input>
+          <button type="submit">Submit</button>
+        </form>
       </div>
 
      );
