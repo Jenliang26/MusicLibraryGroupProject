@@ -77,7 +77,7 @@ class SongForm extends Component {
           
 
 
-          <button type="submit">Create Post</button>
+          <button type="submit">Add Song</button>
         </form>
       </div>
     );
