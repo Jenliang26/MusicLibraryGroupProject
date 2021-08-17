@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -36,7 +36,7 @@ class SearchBar extends Component {
         </form>
       </div>
 
-     );
+    );
   }
 }
  

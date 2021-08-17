@@ -4,6 +4,9 @@ import MusicTable from './music_table/MusicTable';
 import axios from 'axios';
 import SongForm from './SongForm/SongForm';
 import SearchBar from './SearchBar/SearchBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container'
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -63,21 +66,31 @@ class App extends Component {
     render() {
         return(
             <div>
-                
-                <MusicTable 
-                    songs={this.state.songs}
-                    deleteRow={this.deleteRow} 
-                />
-                <SongForm 
-                    songs={this.state.songs} 
-                />
+                <Container className="fluid mt-5">
+                    <div>
 
-                <SearchBar 
-                    filter = {this.filterResults}
-                    songs={this.state.songs}
-                />
-
+                        <MusicTable 
+                            songs={this.state.songs}
+                            deleteRow={this.deleteRow} 
+                        />
+                    </div>
+                </Container>
+                <Container className="fluid mt-5">
+                        <SongForm 
+                            songs={this.state.songs} 
+                        />
+                </Container>
+                <Container className="fluid mt-5">
+                        <SearchBar 
+                            filter = {this.filterResults}
+                            songs={this.state.songs}
+                            filterSongs={this.filterSongs}
+                        />
+                </Container>
             </div>
+
+                
+            
         )
     }
 }
