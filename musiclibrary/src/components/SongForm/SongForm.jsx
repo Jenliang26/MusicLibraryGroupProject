@@ -47,7 +47,7 @@ class SongForm extends Component {
     .post("http://127.0.0.1:8000/music/", data)
     .then(res => console.log(res))
     .catch(err => console.log(err));
-};
+  };
 
   render() { 
     return ( 

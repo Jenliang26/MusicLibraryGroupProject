@@ -4,6 +4,7 @@ import MusicTable from './music_table/MusicTable';
 import axios from 'axios';
 import SongForm from './SongForm/SongForm';
 import SearchBar from './SearchBar/SearchBar';
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -41,12 +42,17 @@ class App extends Component {
         axios.delete(`http://127.0.0.1:8000/music/${id}/`)
         window.location.reload()
     }
-  
+
+    filterSongs(input) {
+        axios.get('http://127.0.0.1:8000/music/')
+    }
+
+   
 
     render() {
         return(
             <div>
-                
+
                 <MusicTable 
                     songs={this.state.songs}
                     deleteRow={this.deleteRow} 
@@ -57,6 +63,7 @@ class App extends Component {
 
                 <SearchBar 
                     songs={this.state.songs}
+                    filterSongs={this.filterSongs}
                 />
 
             </div>
