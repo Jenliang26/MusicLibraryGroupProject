@@ -12,29 +12,13 @@ class SongForm extends Component {
     }
   }
 
-  onTitleChange = e => {
+  onChange=(event)=>{
     this.setState({
-      title: e.target.value
-    });
-  };
+      [event.target.name] : event.target.value
+    })
+  }
 
-  onAlbumChange = e => {
-    this.setState({
-      album: e.target.value
-    });
-  };
-
-  onArtistChange = e => {
-    this.setState({
-      artist: e.target.value
-    });
-  };
-
-  onReleaseDateChange = e => {
-    this.setState({
-      release_date: e.target.value
-    });
-  };
+ 
 
   handleSubmit = e => {
     const data = {
@@ -54,25 +38,29 @@ class SongForm extends Component {
       <div className="post">
         <form className="post" onSubmit={this.handleSubmit}>
 
-
           <input
+          name ="title"
             placeholder="Title" value={this.state.title}
-            onChange={this.onTitleChange} required
+            onChange={this.onChange} required
           />
 
           <input
+          name ="album"
             placeholder="Album" value={this.state.album}
-            onChange={this.onAlbumChange} required
+            onChange={this.onChange} required
           />
 
           <input
+           name="artist"
             placeholder="Artist" value={this.state.artist}
-            onChange={this.onArtistChange} required
+            onChange={this.onChange} required
           />
 
           <input
+          name="release_date"
+           type="date"
             placeholder="Release Date" value={this.state.release_date}
-            onChange={this.onReleaseDateChange} required
+            onChange={this.onChange} required
           />
           
 
