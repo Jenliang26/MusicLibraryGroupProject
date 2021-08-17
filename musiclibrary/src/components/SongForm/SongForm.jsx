@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import Form from 'react-bootstrap/Form'
 
 class SongForm extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class SongForm extends Component {
   render() { 
     return ( 
       <div className="post">
-        <form className="post" onSubmit={this.handleSubmit}>
+        <Form className="post" onSubmit={this.handleSubmit}>
 
           <input
           name ="title"
@@ -66,7 +67,7 @@ class SongForm extends Component {
 
 
           <button type="submit">Add Song</button>
-        </form>
+        </Form>
       </div>
     );
   }
